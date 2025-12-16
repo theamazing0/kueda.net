@@ -1,0 +1,16 @@
+---
+title: Software
+---
+
+<article class="primary">
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+  <content>
+    <p>I've written code for a living most of my life in capitalism. These are some things I've worked on that might be useful to other people.</p>
+  </content>
+</article>
+
+{% for item in site.data.software %}
+  {% include post_snippet.html post=item %}
+{% endfor %}

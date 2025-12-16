@@ -1,0 +1,235 @@
+:root {
+  --text-color: #333;
+  --text-color-meta: #999;
+  --background-color: #fefefe;
+}
+
+@font-face {
+  font-family: "Junicode";
+  src: url("/assets/fonts/JunicodeVF-Roman.woff2");
+}
+
+@font-face {
+  font-family: "Junicode Italic";
+  src: url("/assets/fonts/JunicodeVF-Italic.woff2");
+}
+
+@font-face {
+  font-family: "Geom-SemiBold";
+  src: url("/assets/fonts/Geom-SemiBold.woff2");
+}
+
+@mixin meta {
+  color: var(--text-color-meta);
+}
+
+.meta {
+  @include meta;
+}
+
+@mixin note {
+  font-family: "Junicode Italic", serif;
+  em, i {
+    font-family: Junicode, serif;
+    font-style: normal;
+  }
+}
+
+body {
+  font-family: "Junicode", serif;
+  font-size: 14pt;
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  // This does some wild stuff
+  // font-feature-settings: "hlig";
+}
+
+i, em {
+  font-family: "Junicode Italic", serif;
+  font-style: normal;
+}
+
+a {
+  color: #5e5eed;
+  text-decoration-style: dotted;
+}
+
+a:visited {
+  color: #77628c;
+}
+
+h1, h2, h3 {
+  font-family: "Geom-SemiBold", sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  a {
+    text-decoration: none;
+    display: block;
+    flex-grow: 2;
+    text-align: center;
+    padding: 1em 1vh;
+  }
+  .current {
+    position: relative;
+    font-weight: bold;
+  }
+  a:after {
+    content: '-';
+    display: block;
+    visibility: hidden;
+  }
+  .current:after {
+    // content: ''; // evil eye
+    content: '∵';
+    display: block;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 80ch) {
+  nav {
+    font-size: 2.8vw;
+    font-weight: bold;
+    letter-spacing: reset;
+  }
+}
+
+body {
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 0 2ch;
+}
+
+p {
+  line-height: 1.6em;
+  text-align: justify;
+}
+
+article.primary {
+  content {
+    position: relative;
+    > p:first-child {
+      font-size: larger;
+      line-height: 1.5em;
+    }
+
+    ol {
+      padding-inline-start: 1.4em;
+      li {
+        counter-increment: customlistcounter;
+        margin-block-end: 0.4em;
+      }
+      :first-child {
+        counter-reset: customlistcounter;
+      }
+      li::marker {
+        content: counter(customlistcounter) "  ";
+        font-weight: bold;
+      }
+    }
+  }
+
+  .footnotes {
+    ol {
+      margin-top: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+#colophon:before {
+  content: ''; // evil eye
+  font-size: 20pt;
+  display: block;
+  text-align: center;
+}
+#colophon {
+  margin: 30vh 6vw 10vh;
+  h1 {
+    font-size: 12pt;
+    font-weight: 500;
+    text-align: center;
+  }
+  p {
+    font-size: 12pt;
+  }
+}
+
+#footer {
+  margin: 20vh 0 5vh;
+  text-align: center;
+}
+
+
+.post-snippet, .post {
+  header {
+    h1, h2 {
+      margin-top: 1vh;
+    }
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+  content p {
+    margin-top: 2vh;
+  }
+  margin-top: 5vh;
+}
+
+aside.headnote {
+  @include note;
+}
+
+.sidenote {
+  @include meta;
+  @include note;
+  float: right;
+  margin-inline-end: -24ch;
+  margin-top: 0.4em;
+  font-size: 12pt;
+  max-width: 20ch;
+  text-align: left;
+  line-height: 1.2em;
+}
+
+@media (max-width: 120ch) {
+  .sidenote {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    margin-inline-end: 0;
+    margin-inline-start: 1em;
+    text-align: right;
+  }
+}
+
+hr {
+  @include meta;
+  border: none;
+  overflow: visible;
+  text-align: center;
+  height: 1em;
+  border-top: 1px solid var(--text-color-meta);
+  width: 80%;
+  margin: 3em auto 2em;
+}
+
+hr:after {
+  display: inlineblock;
+  content: '❀';
+  padding: 0 0.4em;
+  position: relative;
+  top: -0.6em;
+  background-color: var(--background-color);
+}

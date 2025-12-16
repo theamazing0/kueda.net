@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<h1>Category: {{ page.name }}</h1>
+<p>{{ page.content }}</p>
+
+{% assign filtered_posts = site.posts | where: 'category', page.short_name %}
+{% if filtered_posts.size == 0 %}
+  <p class="nocontent">Sorry, nothing yet</p>
+{% endif %}
+<ul>
+  {% for post in filtered_posts %}
+    <li>
+      {% include post_snippet.html post=post %}
+    </li>
+  {% endfor %}
+</ul>

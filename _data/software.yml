@@ -1,0 +1,14 @@
+- title: iNaturalist
+  url: https://www.inaturalist.org
+  summary: |
+    In addition to being a co-founder, I played roles in almost all aspects of
+    developing iNaturalist from 2008 to 2025. Most of my code contributions
+    are in the [core web application](https://github.com/inaturalist/inaturalist).
+
+- title: Underfoot
+  url: https://underfoot.rocks
+  summary: |
+    Originally intended to be an Android app for showing digitized geology and
+    hydrological information, now it's a <abbr title="Progressive Web
+    Application">PWA</abbr>. It's not really ready for public consumption and
+    probably never will be, but I use it.

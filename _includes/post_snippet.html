@@ -1,0 +1,19 @@
+<article class="post-snippet">
+  <header>
+    <time datetime="{{include.post.date}}" title="{{include.post.date}}" class="meta">
+      {{ include.post.date | date_to_long_string: "ordinal" }}
+    </time>
+    <h2>
+      <a href="{{ include.post.url }}">{{ include.post.title }}</a>
+    </h2>
+  </header>
+  <content>
+    <p>
+      {% if include.post.summary %}
+        {{ include.post.summary | markdownify }}
+      {% else %}
+        {{ include.post.excerpt | markdownify }}
+      {% endif %}
+    </p>
+  </content>
+</article>

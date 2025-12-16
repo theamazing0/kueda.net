@@ -1,0 +1,16 @@
+---
+title: Writing
+---
+
+<article class="primary">
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+  <content>
+    <p>Longer form pieces that others have seen fit to publish. The list is... not long.</p>
+  </content>
+</article>
+
+{% for item in site.data.writing %}
+  {% include post_snippet.html post=item %}
+{% endfor %}

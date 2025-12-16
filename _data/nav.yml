@@ -1,0 +1,11 @@
+- name: Home
+  link: /
+- name: Blog
+  link: /blog/
+- name: Writing
+  link: /writing/
+- name: Software
+  link: /software/
+- name: Work
+  link: /work/
+
