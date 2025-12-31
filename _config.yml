@@ -35,7 +35,7 @@ plugins:
 scholar:
   # TODO https://github.com/inukshuk/jekyll-scholar/issues/241 so we can sort
   # by author and editor
-  sort_by: author
+  sort_by: name
 
   # This includes the note bibtex field, which we can populate using the Extra
   # Zotero field for things like "Personal communication"
