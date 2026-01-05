@@ -44,3 +44,5 @@ scholar:
   # Most CSLs that include a URL make no attempt to link that URL, so we're
   # doing that here
   bibliography_template: "{{ reference | linkify_urls }}"
+
+  separate_links: true
